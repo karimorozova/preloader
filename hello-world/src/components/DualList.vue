@@ -2,7 +2,7 @@
     <div>
         <div>
             <ul class="list"> 
-                <li class="list-item" v-for="(item, index) in list" :data-item="item" @click="event => addElement(event, item, index)" :key="item"> {{ item }} </li>
+                <li class="list-item" v-for="(item, index) in filteredList" :data-item="item" @click="event => addElement(event, item, index)" :key="item"> {{ item }} </li>
                 
             </ul>
             <div class="total-count">{{ list.length }}</div>
@@ -23,7 +23,7 @@
         </div>
         <div>
             <ul class="list"> 
-                <li class="list-item" v-for="(item, index) in selectedList" :data-item="item" @click="event => addElement(event, item, index)" :key="item"> {{ item }} </li>
+                <li class="list-item" v-for="(item, index) in filteredSelectedList" :data-item="item" @click="event => addElement(event, item, index)" :key="item"> {{ item }} </li>
             </ul>
             <div class="select-count"> Selected: {{ mutableSelectedList.length }}</div>
         </div>
@@ -85,16 +85,18 @@ export default {
   computed: {
     filteredList() {
       let result = this.list
+      if (this.searchValue) return result.filter(item => item.toLowerCase().indexOf(this.searchValue.toLowerCase()) !== -1)
       return result
     },
-    // filteredSelectedList() {
+    filteredSelectedList() {
 
-    //   this.mutableSelectedList = JSON.parse(JSON.stringify(this.selectedList))
-    //   this.mutableSelectedList = [...new Set(this.mutableSelectedList)]
-    //   let result = this.mutableSelectedList
+      this.mutableSelectedList = JSON.parse(JSON.stringify(this.selectedList))
+      this.mutableSelectedList = [...new Set(this.mutableSelectedList)]
+      let result = this.mutableSelectedList
+      if (this.searchChosenValue) return result.filter(item => item.toLowerCase().indexOf(this.searchChosenValue.toLowerCase()) !== -1)
 
-    //   return result
-    // },
+      return result
+    },
     hasFilterSlot() {
       return !!this.$slots.filter;
     },
