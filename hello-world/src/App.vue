@@ -1,17 +1,20 @@
 <template>
   <div>
     <MyPreloader />
+    <dual-list/>
   </div>
 
 </template>
 
 <script>
 import MyPreloader from '@/components/MyPreloader'
+import DualList from './components/DualList.vue'
 
 export default {
   name: 'App',
   components: {
-    MyPreloader
+    MyPreloader,
+    DualList
   }
 }
 </script>
