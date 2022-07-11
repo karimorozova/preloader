@@ -1,20 +1,23 @@
 <template>
   <div>
-    <MyPreloader />
+    <LoaderCircle />
     <dual-list/>
+    <loader-line />
   </div>
 
 </template>
 
 <script>
-import MyPreloader from '@/components/MyPreloader'
+import LoaderCircle from '@/components/LoaderCircle'
+import LoaderLine from '@/components/LoaderLine'
 import DualList from './components/DualList.vue'
 
 export default {
   name: 'App',
   components: {
-    MyPreloader,
-    DualList
+    LoaderCircle,
+    DualList,
+    LoaderLine
   }
 }
 </script>

@@ -90,10 +90,10 @@ export default {
     },
     filteredSelectedList() {
 
-      this.mutableSelectedList = JSON.parse(JSON.stringify(this.selectedList))
-      this.mutableSelectedList = [...new Set(this.mutableSelectedList)]
+      // this.mutableSelectedList = JSON.parse(JSON.stringify(this.selectedList))
+      // this.mutableSelectedList = [...new Set(this.mutableSelectedList)]
       let result = this.mutableSelectedList
-      if (this.searchChosenValue) return result.filter(item => item.toLowerCase().indexOf(this.searchChosenValue.toLowerCase()) !== -1)
+      // if (this.searchChosenValue) return result.filter(item => item.toLowerCase().indexOf(this.searchChosenValue.toLowerCase()) !== -1)
 
       return result
     },
