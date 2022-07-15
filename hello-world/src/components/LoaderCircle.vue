@@ -13,7 +13,7 @@
 
 <script>
 export default {
-  name: 'MyPreloader',
+  name: 'LoaderCircle',
   props: {
     color: {
       type: String,
